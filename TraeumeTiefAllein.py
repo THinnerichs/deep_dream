@@ -18,5 +18,6 @@ def save_image(img, name):
 
 cnn = deep_dream.CNN(deep_dream.GOOGLENET_BVLC, cpu_workers=0, gpus=[0])
 input_img = Image.open('kodim/img0022.jpg').resize((1536, 1024), Image.LANCZOS)
-save_image(input_img, './Meine_Bilder/out')
+# save_image(input_img, './Meine_Bilder/out')
+input_img.save("./Meine_Bilder/out.png", "png")
 
