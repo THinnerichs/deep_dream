@@ -27,5 +27,5 @@ if __name__ == '__main__':
 
 	# output_img.save("./Meine_Bilder/Dreamed_out.png", 'png')
 
-	deep_dream.to_image(output_img).save("./Meine_Bilder/Dreamed_out.jpg", quality=85)
+	deep_dream.to_image(output_img).save("./Meine_Bilder/Tobias_dreamed_out.jpg", quality=85)
 
