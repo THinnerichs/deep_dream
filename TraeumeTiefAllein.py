@@ -19,7 +19,7 @@ def save_image(img, name):
 
 if __name__ == '__main__':
 	cnn = deep_dream.CNN(deep_dream.GOOGLENET_BVLC, cpu_workers=16)
-	input_img = Image.open('Klassentreffen_Bilder2.jpg').resize((1536, 1024), Image.LANCZOS)
+	input_img = Image.open('Klassentreffen_Bilder2.jpg').resize((1200, 1600), Image.LANCZOS)
 
 	# input_img.save("./Meine_Bilder/out.png", "png")
 
