@@ -5,6 +5,7 @@ from PIL import Image
 
 import deep_dream
 
+
 def save_image(img, name):
 	
 	im = np.array(img)
@@ -16,8 +17,15 @@ def save_image(img, name):
 	result = Image.fromarray((visual * 255).astype(np.uint8))
 	result.save(name+'.bmp')
 
-cnn = deep_dream.CNN(deep_dream.GOOGLENET_BVLC, cpu_workers=0, gpus=[0])
-input_img = Image.open('kodim/img0022.jpg').resize((1536, 1024), Image.LANCZOS)
-# save_image(input_img, './Meine_Bilder/out')
-input_img.save("./Meine_Bilder/out.png", "png")
+if __name__ == '__main__':
+	cnn = deep_dream.CNN(deep_dream.GOOGLENET_BVLC, cpu_workers=16)
+	input_img = Image.open('kodim/img0022.jpg').resize((1536, 1024), Image.LANCZOS)
+
+	# input_img.save("./Meine_Bilder/out.png", "png")
+
+	output_img = cnn.dream(input_img, {'inception_4a/pool_proj': 1}, scales=7*4, n=2, per_octave=8, step_size=4)
+
+	# output_img.save("./Meine_Bilder/Dreamed_out.png", 'png')
+
+	deep_dream.to_image(output_img).save("./Meine_Bilder/Dreamed_out.jpg", quality=85)
 
