@@ -5,3 +5,5 @@ out.png
 test_output.png
 .ipynb_checkpoints
 *Copy*.ipynb
+
+bvlc_googlenet/*
